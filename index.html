@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============ SEO META ============ -->
+  <title>Terrashroom — Closed June 2025. The Full Story.</title>
+  <meta name="description" content="Terrashroom shut down in June 2025 after 3.5 years building a mushroom grow chamber. Here's what happened, what we owe customers, and what we learned." />
+  <meta name="author" content="Jared Steele" />
+  <link rel="canonical" href="https://terrashroom.co/" />
+
+  <!-- ============ OPEN GRAPH (LinkedIn, Facebook, iMessage previews) ============ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://terrashroom.co/" />
+  <meta property="og:title" content="Terrashroom — Closed June 2025. The Full Story." />
+  <meta property="og:description" content="After 3.5 years of building a system to help people grow their own food and health, terrashroom made the difficult decision to close our doors." />
+  <meta property="og:image" content="https://terrashroom.co/assets/images/og-image.jpg" />
+
+  <!-- ============ TWITTER CARD ============ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Terrashroom — Closed June 2025. The Full Story." />
+  <meta name="twitter:description" content="After 3.5 years of building a system to help people grow their own food and health, terrashroom made the difficult decision to close our doors." />
+  <meta name="twitter:image" content="https://terrashroom.co/assets/images/og-image.jpg" />
+
+  <!-- ============ FAVICON ============ -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+  <!-- ============ FONTS ============ -->
+  <!-- The Youngest Serif (self-hosted) is the primary display font. -->
+  <!-- Fraunces is loaded as a fallback so the page still looks right while -->
+  <!-- The Youngest Serif loads (or if the .woff2 file is ever missing). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&display=swap" rel="stylesheet" />
+
+  <!-- Satoshi: Free from Fontshare, matches the Figma exactly -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* The Youngest Serif — self-hosted. */
+    /* Drop the font file at /assets/fonts/the-youngest-serif-book.woff2 */
+    /* If your file is named differently, update the src path below. */
+    @font-face {
+      font-family: 'The Youngest Serif';
+      src: url('/assets/fonts/the-youngest-serif-book.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       Adjust these CSS variables to tune the entire site at once.
+       ============================================================ */
+    :root {
+      --color-bg: #0a0a0a;
+      --color-text: #ffffff;
+      --color-text-muted: rgba(255, 255, 255, 0.85);
+      --color-accent: #00eaff;
+      --color-accent-hover: #5cf2ff;
+
+      --font-display: 'The Youngest Serif', 'Fraunces', 'Georgia', serif;
+      --font-body: 'Satoshi', system-ui, -apple-system, sans-serif;
+
+      --max-content-width: 1428px;
+      --header-padding: 33px;
+      --hero-text-max-width: 635px;
+    }
+
+    /* ============================================================
+       RESET + BASE
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ============================================================
+       BACKGROUND VIDEO
+       Fullscreen, looping, muted. Poster image shows while loading.
+       ============================================================ */
+    .background-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Subtle dark overlay so text stays readable over any video frame */
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       PAGE LAYOUT
+       ============================================================ */
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ============================================================
+       HEADER (logo, centered)
+       ============================================================ */
+    .site-header {
+      width: 100%;
+      padding: var(--header-padding) 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1.2s ease-out 0.2s both;
+    }
+
+    .site-logo {
+      width: 202px;
+      height: auto;
+    }
+
+    /* ============================================================
+       HERO (left-aligned text, vertical center)
+       ============================================================ */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 80px 24px 120px;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      max-width: 723px;
+      animation: slideUp 1s ease-out 0.6s both;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.25rem, 4.5vw, 3rem); /* 36px → 48px */
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+      color: var(--color-text);
+    }
+
+    .hero-subhead {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(1.125rem, 1.8vw, 1.375rem); /* 18px → 22px */
+      line-height: 1.5;
+      max-width: 635px;
+      margin-bottom: 16px; /* tightened spacing before CTA */
+      color: var(--color-text-muted);
+    }
+
+    /* ============================================================
+       CTA LINK (cyan, animated arrow)
+       ============================================================ */
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--color-accent);
+      padding: 14px 0;
+      transition: color 200ms ease, gap 200ms ease;
+    }
+
+    .cta-link:hover,
+    .cta-link:focus-visible {
+      color: var(--color-accent-hover);
+      gap: 14px;
+    }
+
+    .cta-link:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .cta-arrow {
+      transition: transform 200ms ease;
+    }
+
+    /* ============================================================
+       FOOTER (minimal, copyright only)
+       ============================================================ */
+    .site-footer {
+      padding: 24px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+      animation: fadeIn 1.5s ease-out 1s both;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .background-video {
+        display: none;
+      }
+      body {
+        background-image: url('/assets/images/hero-poster.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    /* ============================================================
+       MOBILE / TABLET RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .site-header {
+        padding: 24px 20px;
+      }
+
+      .site-logo {
+        width: 160px;
+      }
+
+      .hero {
+        padding: 40px 24px 80px;
+        align-items: center;
+      }
+
+      .hero-headline {
+        font-size: 2rem; /* 32px */
+        line-height: 1.15;
+      }
+
+      .hero-subhead {
+        font-size: 1.0625rem; /* 17px */
+      }
+
+      /* Slightly stronger overlay on mobile for readability */
+      .background-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.4) 0%,
+          rgba(0, 0, 0, 0.6) 100%
+        );
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 1.75rem; /* 28px */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background video. Replace src with your video file path. -->
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="/assets/images/hero-poster.jpg"
+    aria-hidden="true"
+  >
+    <source src="/assets/video/sizzle-reel.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Dark gradient overlay over the video for text readability -->
+  <div class="background-overlay" aria-hidden="true"></div>
+
+  <div class="page">
+    <!-- Logo header -->
+    <header class="site-header">
+      <a href="/" aria-label="Terrashroom home">
+        <img
+          class="site-logo"
+          src="/assets/images/logo.png"
+          alt="terrashroom"
+          width="202"
+          height="50"
+        />
+      </a>
+    </header>
+
+    <!-- Hero section -->
+    <main class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-headline">Thank you for your support</h1>
+          <p class="hero-subhead">
+            After 3.5 years of building a system to help people grow their own
+            food and health, terrashroom made the difficult decision to close
+            our doors.
+          </p>
+          <a href="/what-happened" class="cta-link">
+            Read our story
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal footer -->
+    <footer class="site-footer">
+      © 2022–2026 terrashroom
+    </footer>
+  </div>
+</body>
+</html>
