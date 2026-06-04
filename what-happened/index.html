@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Happened to Terrashroom — The Full Story</title>
+  <meta name="description" content="After 3.5 years building a smart mushroom grow chamber, Terrashroom shut down in June 2025. The full story from founder Jared Steele: what went wrong, what we owe customers, and what we learned." />
+  <meta name="author" content="Jared Steele" />
+  <link rel="canonical" href="https://terrashroom.co/what-happened" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://terrashroom.co/what-happened" />
+  <meta property="og:title" content="What Happened to Terrashroom — The Full Story" />
+  <meta property="og:description" content="The full, honest account of why Terrashroom shut down after 3.5 years, from founder Jared Steele." />
+  <meta property="og:image" content="https://terrashroom.co/assets/images/last-company-update-header.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Happened to Terrashroom — The Full Story" />
+  <meta name="twitter:description" content="The full, honest account of why Terrashroom shut down after 3.5 years." />
+  <meta name="twitter:image" content="https://terrashroom.co/assets/images/last-company-update-header.jpg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,400&display=swap" rel="stylesheet" />
+  <style>
+    @font-face { font-family:'The Youngest Serif'; src:url('/assets/fonts/the-youngest-serif-book.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+    :root{
+      --color-bg:#0a0a0a; --color-text:#fff; --color-text-muted:rgba(255,255,255,.82); --color-text-soft:rgba(255,255,255,.6);
+      --color-accent:#00eaff; --color-accent-hover:#5cf2ff; --color-hairline:rgba(255,255,255,.12);
+      --font-display:'The Youngest Serif','Fraunces','Georgia',serif; --font-body:'Satoshi',system-ui,sans-serif; --read-width:720px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);color:var(--color-text);background:var(--color-bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+      background:radial-gradient(900px 600px at 12% -10%,rgba(0,234,255,.06),transparent 60%),radial-gradient(700px 500px at 100% 110%,rgba(0,234,255,.05),transparent 55%)}
+    a{color:inherit;text-decoration:none}
+    img,video{max-width:100%;display:block}
+    .site-header{padding:28px 24px;display:flex;justify-content:center;border-bottom:1px solid var(--color-hairline)}
+    .site-logo{width:172px;height:auto}
+    .wrap{max-width:var(--read-width);margin:0 auto;padding:0 24px}
+    .article{padding:40px 0 40px}
+    .hero-banner{margin:8px 0 36px}
+    .hero-banner img{width:100%;height:auto;border-radius:14px;border:1px solid var(--color-hairline)}
+    .eyebrow{font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:16px}
+    .article h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:18px}
+    .lede{font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.55;color:var(--color-text-muted);margin-bottom:14px}
+    .article h2{font-family:var(--font-display);font-weight:400;font-size:1.6rem;line-height:1.25;margin:48px 0 16px}
+    .article p{font-size:1.0625rem;line-height:1.72;color:var(--color-text-muted);margin-bottom:20px}
+    .article strong{color:var(--color-text);font-weight:500}
+    .article a.inline{color:var(--color-accent);border-bottom:1px solid rgba(0,234,255,.4)}
+    .meta{font-size:.9rem;color:var(--color-text-soft);margin-bottom:34px}
+    .media{margin:40px 0}
+    .media video,.media img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--color-hairline)}
+    .media figcaption{font-size:.92rem;color:var(--color-text-soft);margin-top:10px;text-align:center}
+    .media.portrait{display:flex;flex-direction:column;align-items:center}
+    .media.portrait video{width:auto;height:auto;max-height:560px}
+    .callout{border:1px solid var(--color-hairline);border-left:3px solid var(--color-accent);border-radius:10px;padding:22px 24px;margin:32px 0;background:rgba(255,255,255,.02)}
+    .callout p{margin-bottom:10px}.callout p:last-child{margin-bottom:0}
+    .btn{display:inline-flex;align-items:center;gap:10px;font-weight:500;color:#04212a;background:var(--color-accent);padding:14px 22px;border-radius:999px;transition:background .18s}
+    .btn:hover{background:var(--color-accent-hover)}
+    .related{border-top:1px solid var(--color-hairline);margin-top:56px;padding-top:28px}
+    .related h2{font-family:var(--font-body);font-weight:500;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-soft);margin-bottom:14px}
+    .related a{display:block;color:var(--color-accent);padding:7px 0;font-size:1.0625rem}
+    .back{display:inline-flex;gap:8px;color:var(--color-text-soft);font-size:.95rem;padding:32px 0 0}
+    .site-footer{border-top:1px solid var(--color-hairline);margin-top:64px;padding:28px 24px;text-align:center;font-size:.85rem;color:var(--color-text-soft)}
+    @media(max-width:768px){.site-logo{width:148px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" aria-label="Terrashroom home"><img class="site-logo" src="/assets/images/logo.png" alt="terrashroom" width="172" height="42" /></a>
+  </header>
+  <main class="wrap article">
+    <div class="hero-banner">
+      <img src="/assets/images/last-company-update-header.jpg"
+           alt="Terrashroom — The Last Company Update. A terrashroom grow chamber full of mushrooms on a desk beside a laptop."
+           width="1265" height="700" />
+    </div>
+
+    <h1>What happened to Terrashroom?</h1>
+    <p class="meta">June 2025</p>
+
+    <p class="lede">Want to share an update that is long overdue.</p>
+
+    <p>I know many of you are upset. You feel left in the dark, unsure what is going on, angry about delays. After sorting through options and chasing viable outcomes, we have made the painful decision to close the doors on Terrashroom after 3.5 years.</p>
+
+    <p>We made mistakes. We overpromised. We underestimated how hard inventing a new consumer hardware product is. We burned money trying to fix things, but could not get there in time. Over the years, we poured our hearts into building Terrashroom, and unfortunately things did not work out as we had hoped.</p>
+
+    <figure class="media">
+      <img loading="lazy" src="/assets/images/terrashroom-grow-chamber-in-bloom.jpg" alt="A terrashroom smart grow chamber glowing on a desk with a full flush of mushrooms inside" width="2560" height="1440" />
+      <figcaption>What we set out to build: a grow chamber that made mushrooms simple, beautiful, and possible for anyone.</figcaption>
+    </figure>
+
+
+    <h2>What went wrong</h2>
+    <p>When I started Terrashroom in 2022, I believed we could make growing mushrooms simple, attractive, and accessible to anyone. What began as a weekend project with a 3D printer turned into a journey that consumed everything.</p>
+
+    <figure class="media">
+      <video controls autoplay muted loop playsinline preload="metadata"
+             poster="/assets/images/terrashroom-product-sizzle-reel-poster.jpg" aria-label="Terrashroom TS-01 grow computer product reel">
+        <source src="/assets/video/terrashroom-product-sizzle-reel.mp4" type="video/mp4" />
+      </video>
+      <figcaption>Hundreds of parts went into manufacturing &amp; designing the TS-01</figcaption>
+    </figure>
+
+
+    <p>The initial manufacturing consultant we were working with said we would need about <strong>$40,000</strong> and three to four months to bring the product to market, with unit costs around $30. The reality was crushing. Development costs ballooned tenfold, manufacturing timelines stretched from months to years, and our unit costs multiplied beyond sustainable levels.</p>
+
+    <figure class="media portrait">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="/assets/images/terrashroom-factory-assembly-line-poster.jpg" aria-label="Workers assembling terrashroom units on a factory assembly line">
+        <source src="/assets/video/terrashroom-factory-assembly-line.mp4" type="video/mp4" />
+      </video>
+      <figcaption>The factory floor where the units were assembled, far later and far more expensively than planned.</figcaption>
+    </figure>
+
+    <p>The challenges compounded. Manufacturing delays pushed our timeline from a few months to nearly three years. Platform restrictions resulted in multiple bans from Shopify, Meta, and our payment processors. After launch, 72% of customers stopped using their units within five months. And the mushroom market shifted dramatically underneath us. We are not alone in facing this, as multiple companies in our industry are restructuring or closing.</p>
+
+    <figure class="media">
+      <video autoplay muted loop playsinline preload="metadata" style="max-width:50%;margin:0 auto"
+             poster="/assets/images/terrashroom-manufacturing-domes-poster.jpg" aria-label="Rows of clear terrashroom grow chamber domes on a production line">
+        <source src="/assets/video/terrashroom-manufacturing-domes.mp4" type="video/mp4" />
+      </video>
+      <figcaption>first production run of MP1</figcaption>
+    </figure>
+
+
+    <p>But ultimately, the responsibility is mine. We made mistakes. We overpromised. We underestimated the complexity of bringing a consumer hardware product to life.</p>
+
+    <h2>Moving forward</h2>
+    <p>Simply put, we are shutting Terrashroom down entirely. This means we will no longer offer service or support for existing units, and we will not be able to refund customers of their deposits or orders.</p>
+
+    <p>Despite this, I want to do my best to make things right. I have created a <a class="inline" href="https://docs.google.com/forms/d/e/1FAIpQLSeAeHkvy_X8_8ylqQE1ziwAGLvK7vpFLo8tW5BQJXFu_4Oxmg/viewform">customer claims form</a> to document everyone affected. While I cannot make immediate refunds, I want to be clear: I feel a deep moral obligation to make this right, even if it takes years.</p>
+
+    <p>To those who have called me, or this, a scam, I understand your anger, but I need you to know the truth. Over 3.5 years, my total pre-tax income from Terrashroom was <strong>$74,706</strong>, averaging about $5.99 per hour at 80-hour weeks. I have drained savings, lived on the bare minimum, and sacrificed my physical and mental health trying to make this work. This failure has hurt a lot. I am sorry.</p>
+
+    <figure class="media">
+      <img loading="lazy" src="/assets/images/terrashroom-customer-reviews-instagram.jpg" alt="A collage of customer Instagram posts and stories showing terrashroom grow chambers in their homes" width="1920" height="1080" />
+      <figcaption>Thank you to the overwhelming support from our community</figcaption>
+    </figure>
+
+    <figure class="media">
+      <img loading="lazy" src="/assets/images/terrashroom-ts-01-grow-computer.jpg" alt="A terrashroom TS-01 grow computer on a shelf beside books and a framed technical drawing of the device" width="1600" height="1200" />
+      <figcaption>The TS-01 at home, beside the technical drawing of everything that went into it.</figcaption>
+    </figure>
+
+
+    <h2>A personal note</h2>
+    <p>Last year, after experiencing chest pains from the stress, my doctor told me bluntly that if I kept going at this rate, I probably would not see my 40th birthday. I am 31.</p>
+
+    <p>Building Terrashroom became an obsession that consumed my life. While that is no excuse for letting you down, I want you to understand that this was not a scheme. It was a dream that, despite our best efforts, we could not make reality.</p>
+
+    <p>I'm committed to finding ways to make things right over time. If you have questions or concerns, please DM me at <a class="inline" href="https://x.com/Steele_Jared">@steele_jared</a> (twitter/X) or <a class="inline" href="https://www.linkedin.com/in/jared-steele/">Linkedin</a>.</p>
+
+    <p>To everyone who believed in our vision and supported us, I am deeply sorry we could not deliver. Your trust meant everything, and I take full responsibility for falling short.</p>
+
+    <p>— Jared Steele, Founder/CEO | Terrashroom</p>
+
+    <a class="back" href="/">← Back to home</a>
+  </main>
+  <footer class="site-footer">© 2022–2026 terrashroom · <a href="mailto:jared@terrashroom.co" style="color:var(--color-text-soft);border-bottom:1px solid var(--color-hairline)">jared@terrashroom.co</a></footer>
+</body>
+</html>
